@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Vikram ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at center,#252525 0%,#090909 65%,#000 100%);
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+/* ---------- INTRO ---------- */
+
+.scene{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    position:relative;
+}
+
+.hint{
+    position:absolute;
+    top:12%;
+    font-size:16px;
+    letter-spacing:3px;
+    color:#ddd;
+    animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+    50%{opacity:.4}
+}
+
+/* ---------- GIFT BOX ---------- */
+
+.gift{
+    width:190px;
+    height:145px;
+    position:relative;
+    cursor:pointer;
+    transition:1s;
+    z-index:5;
+}
+
+.box{
+    position:absolute;
+    width:180px;
+    height:120px;
+    bottom:0;
+    left:5px;
+    background:linear-gradient(145deg,#fff,#dcdcdc);
+    border-radius:5px;
+    box-shadow:
+      0 20px 45px rgba(0,0,0,.7),
+      inset 0 0 15px rgba(0,0,0,.12);
+}
+
+.box::after{
+    content:"";
+    position:absolute;
+    width:28px;
+    height:100%;
+    background:#e63968;
+    left:76px;
+}
+
+.lid{
+    position:absolute;
+    width:200px;
+    height:35px;
+    left:-5px;
+    top:0;
+    background:linear-gradient(145deg,#fff,#d8d8d8);
+    border-radius:6px;
+    box-shadow:0 8px 15px rgba(0,0,0,.4);
+    z-index:3;
+}
+
+.lid::after{
+    content:"";
+    position:absolute;
+    width:28px;
+    height:100%;
+    background:#e63968;
+    left:86px;
+}
+
+.bow{
+    position:absolute;
+    top:-32px;
+    left:68px;
+    font-size:48px;
+    z-index:4;
+}
+
+/* ---------- BREAK ---------- */
+
+.broken{
+    animation:boxBreak .8s forwards;
+}
+
+@keyframes boxBreak{
+    0%{transform:scale(1)}
+    40%{transform:scale(1.15) rotate(3deg)}
+    100%{
+        transform:scale(0) rotate(25deg);
+        opacity:0;
+    }
+}
+
+.smoke{
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(255,255,255,.35),
+        rgba(255,255,255,.08),
+        transparent 70%);
+    opacity:0;
+    pointer-events:none;
+}
+
+.smoke.active{
+    animation:smoke 2s forwards;
+}
+
+@keyframes smoke{
+    0%{
+        opacity:0;
+        transform:scale(.2);
+    }
+    40%{
+        opacity:1;
+        transform:scale(1);
+    }
+    100%{
+        opacity:0;
+        transform:scale(1.8);
+    }
+}
+
+/* ---------- PLAYER ---------- */
+
+.player{
+    position:absolute;
+    bottom:-20px;
+    text-align:center;
+    opacity:0;
+    transform:translateY(120px) scale(.8);
+}
+
+.player.show{
+    animation:playerReveal 2.2s forwards;
+}
+
+@keyframes playerReveal{
+    0%{
+        opacity:0;
+        transform:translateY(120px) scale(.8);
+    }
+    60%{
+        opacity:1;
+        transform:translateY(-8px) scale(1.02);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* BACK VIEW BODY */
+
+.body{
+    width:135px;
+    height:220px;
+    background:linear-gradient(90deg,#151515,#292929,#111);
+    border-radius:65px 65px 20px 20px;
+    position:relative;
+    margin:auto;
+    box-shadow:0 10px 30px #000;
+}
+
+.neck{
+    width:50px;
+    height:45px;
+    background:#a96f4c;
+    position:absolute;
+    top:-35px;
+    left:42px;
+    border-radius:20px 20px 8px 8px;
+}
+
+.head{
+    width:70px;
+    height:78px;
+    background:#a96f4c;
+    position:absolute;
+    top:-92px;
+    left:32px;
+    border-radius:50% 50% 45% 45%;
+}
+
+/* HAIR */
+
+.head::before{
+    content:"";
+    position:absolute;
+    width:72px;
+    height:40px;
+    top:-3px;
+    left:-1px;
+    background:#111;
+    border-radius:50% 50% 25% 25%;
+}
+
+/* T-SHIRT */
+
+.name{
+    position:absolute;
+    top:65px;
+    width:100%;
+    font-size:21px;
+    font-weight:bold;
+    letter-spacing:4px;
+    color:white;
+}
+
+.role{
+    position:absolute;
+    top:100px;
+    width:100%;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#ddd;
+}
+
+/* NUMBER */
+
+.number{
+    position:absolute;
+    top:125px;
+    width:100%;
+    font-size:42px;
+    font-weight:bold;
+    color:#e63968;
+}
+
+/* LEGS */
+
+.legs{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+}
+
+.leg{
+    width:42px;
+    height:145px;
+    background:#111;
+    border-radius:10px;
+}
+
+/* CUP */
+
+.cup{
+    position:absolute;
+    right:-115px;
+    bottom:110px;
+    font-size:75px;
+    filter:drop-shadow(0 8px 10px #000);
+    animation:cupFloat 2s infinite ease-in-out;
+}
+
+@keyframes cupFloat{
+    50%{transform:translateY(-8px)}
+}
+
+/* ---------- CONFETTI ---------- */
+
+.confetti{
+    position:absolute;
+    width:7px;
+    height:14px;
+    top:-20px;
+    animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+/* ---------- MESSAGE ---------- */
+
+.message{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    opacity:0;
+    pointer-events:none;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(5px);
+}
+
+.message.show{
+    animation:messageIn 2s forwards;
+}
+
+@keyframes messageIn{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.card{
+    max-width:650px;
+}
+
+.card h1{
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.card p{
+    font-size:20px;
+    line-height:1.8;
+    color:#eee;
+}
+
+.highlight{
+    color:#ff4f7b;
+    font-weight:bold;
+}
+
+.signature{
+    margin-top:30px;
+    font-size:18px;
+    letter-spacing:3px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .card h1{
+        font-size:30px;
+    }
+
+    .card p{
+        font-size:16px;
+    }
+
+    .player{
+        transform:scale(.8);
+    }
+
+    .cup{
+        right:-75px;
+        font-size:60px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <div class="hint" id="hint">
+        TOUCH THE GIFT 🎁
+    </div>
+
+    <!-- GIFT -->
+    <div class="gift" id="gift" onclick="openGift()">
+
+        <div class="bow">🎀</div>
+
+        <div class="lid"></div>
+
+        <div class="box"></div>
+
+    </div>
+
+    <!-- SMOKE -->
+    <div class="smoke" id="smoke"></div>
+
+    <!-- BACK VIEW PLAYER -->
+    <div class="player" id="player">
+
+        <div class="body">
+
+            <div class="neck"></div>
+
+            <div class="head"></div>
+
+            <div class="name">
+                VIKRAM
+            </div>
+
+            <div class="role">
+                KABADDI PLAYER
+            </div>
+
+            <div class="number">
+                07
+            </div>
+
+        </div>
+
+        <div class="legs">
+            <div class="leg"></div>
+            <div class="leg"></div>
+        </div>
+
+        <div class="cup">
+            🏆
+        </div>
+
+    </div>
+
+    <!-- FINAL MESSAGE -->
+    <div class="message" id="message">
+
+        <div class="card">
+
+            <h1>
+                Happy Birthday Vikram 🎂❤️
+            </h1>
+
+            <p>
+                Some moments become memories,<br>
+                but <span class="highlight">some memories stay forever. 🏆</span>
+                <br><br>
+
+                Andha <b>District Winning</b> moment-a<br>
+                nee eppavum marakka koodadhu. ❤️
+                <br><br>
+
+                Andha moment paatha unakku varra<br>
+                andha smile maari...
+                <br>
+                <span class="highlight">
+                nee eppavum happy-ah irukkanum. 😊
+                </span>
+            </p>
+
+            <div class="signature">
+                GB TC ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openGift(){
+
+    const gift = document.getElementById("gift");
+    const hint = document.getElementById("hint");
+    const smoke = document.getElementById("smoke");
+    const player = document.getElementById("player");
+    const message = document.getElementById("message");
+
+    /* Hide hint */
+    hint.style.display="none";
+
+    /* Break gift */
+    gift.classList.add("broken");
+
+    /* Smoke */
+    setTimeout(()=>{
+        smoke.classList.add("active");
+    },300);
+
+    /* Player reveal */
+    setTimeout(()=>{
+        player.classList.add("show");
+        createConfetti();
+    },900);
+
+    /* Final message */
+    setTimeout(()=>{
+        message.classList.add("show");
+    },5000);
+}
+
+
+/* CONFETTI */
+
+function createConfetti(){
+
+    for(let i=0;i<80;i++){
+
+        const piece=document.createElement("div");
+
+        piece.classList.add("confetti");
+
+        piece.style.left=Math.random()*100+"vw";
+
+        piece.style.animationDelay=Math.random()*1.5+"s";
+
+        piece.style.transform=
+            "rotate("+Math.random()*360+"deg)";
+
+        document.body.appendChild(piece);
+
+        setTimeout(()=>{
+            piece.remove();
+        },4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
